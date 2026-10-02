@@ -208,21 +208,52 @@ export const Profile = () => {
               isUnlocked = isUnlocked || (gameState.claimedMissions || []).includes('m_olympiad');
             }
 
+            const tooltipMessage = isUnlocked
+              ? "🎉 Badge Unlocked! Great job!"
+              : "🔒 Complete the course to unlock this badge!";
+
             return (
               <div
                 key={badge.id}
+                title={tooltipMessage}
                 style={{
-                  padding: '16px', borderRadius: 'var(--radius-md)', backgroundColor: 'var(--bg-main)',
-                  border: isUnlocked ? '1.5px solid var(--secondary)' : '1px dashed var(--border-light)',
-                  opacity: isUnlocked ? 1 : 0.45, display: 'flex', alignItems: 'center', gap: '12px'
+                  padding: '16px',
+                  borderRadius: 'var(--radius-md)',
+                  backgroundColor: 'var(--bg-main)',
+                  border: isUnlocked ? '2px solid var(--secondary)' : '1.5px solid var(--border-light)',
+                  opacity: 1,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '8px',
+                  position: 'relative',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease'
                 }}
               >
-                <div style={{ fontSize: '2rem', filter: isUnlocked ? 'none' : 'grayscale(100%)' }}>{badge.icon}</div>
-                <div>
-                  <div style={{ fontWeight: '800', fontFamily: 'var(--font-rounded)', fontSize: '0.95rem', color: isUnlocked ? 'var(--text-main)' : 'var(--text-muted)' }}>
-                    {badge.name}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ fontSize: '2.2rem' }}>{badge.icon}</div>
+                  <div>
+                    <div style={{ fontWeight: '800', fontFamily: 'var(--font-rounded)', fontSize: '0.98rem', color: 'var(--text-main)' }}>
+                      {badge.name}
+                    </div>
+                    <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>{badge.desc}</div>
                   </div>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>{badge.desc}</div>
+                </div>
+
+                {/* Status tag */}
+                <div style={{
+                  fontSize: '0.73rem',
+                  fontWeight: '800',
+                  padding: '4px 8px',
+                  borderRadius: '6px',
+                  backgroundColor: isUnlocked ? 'rgba(34, 197, 94, 0.12)' : 'rgba(245, 158, 11, 0.15)',
+                  color: isUnlocked ? '#16a34a' : '#d97706',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  marginTop: '4px'
+                }}>
+                  {isUnlocked ? '✅ Unlocked' : '🔒 Complete the course to unlock'}
                 </div>
               </div>
             );
