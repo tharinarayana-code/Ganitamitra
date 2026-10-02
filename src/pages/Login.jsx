@@ -118,7 +118,10 @@ export const Login = ({ onNavigate }) => {
       <div className="login-card-landscape" style={{
         width: '100%',
         maxWidth: '1240px',
-        maxHeight: '94vh',
+        minHeight: 'auto',
+        backgroundColor: 'var(--bg-card-solid, #ffffff)',
+        border: '1.5px solid var(--border-card, #e2e8f0)',
+        boxShadow: 'var(--shadow-md, 0 12px 32px rgba(0,0,0,0.06))',
         borderRadius: '24px',
         overflow: 'hidden',
         position: 'relative',
@@ -146,18 +149,19 @@ export const Login = ({ onNavigate }) => {
         <div style={{
           display: 'flex',
           flexDirection: 'row',
+          flexWrap: 'wrap',
           alignItems: 'center',
           justifyContent: 'center',
           padding: 'clamp(18px, 3vh, 36px) clamp(20px, 3vw, 44px)',
           gap: 'clamp(20px, 3vw, 40px)',
-          flex: 1
+          width: '100%'
         }}>
           
           {/* Left Side: Prominent, High-Resolution Boy Illustration */}
           <div style={{
-            flex: '1.15 1 420px',
+            flex: '1.15 1 300px',
             maxWidth: '560px',
-            height: '100%',
+            alignSelf: 'stretch',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center'
