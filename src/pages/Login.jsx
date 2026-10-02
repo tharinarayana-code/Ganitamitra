@@ -147,20 +147,20 @@ export const Login = ({ onNavigate }) => {
 
         
         {/* Main Grid: Left Boy Illustration & Right Content */}
-        <div style={{
+        <div className="login-card-grid" style={{
           display: 'flex',
           flexDirection: 'row',
           flexWrap: 'wrap',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: 'clamp(36px, 5vh, 64px) clamp(24px, 4vw, 56px)',
-          gap: 'clamp(24px, 3.5vw, 48px)',
+          padding: 'clamp(28px, 4vh, 60px) clamp(20px, 3.5vw, 52px)',
+          gap: 'clamp(20px, 3vw, 44px)',
           width: '100%'
         }}>
           
           {/* Left Side: Prominent, High-Resolution Boy Illustration */}
           <div style={{
-            flex: '1.15 1 300px',
+            flex: '1.15 1 260px',
             maxWidth: '560px',
             alignSelf: 'stretch',
             display: 'flex',
@@ -182,7 +182,7 @@ export const Login = ({ onNavigate }) => {
                 style={{
                   width: '100%',
                   height: 'auto',
-                  maxHeight: 'clamp(320px, 60vh, 520px)',
+                  maxHeight: 'clamp(180px, 40vh, 520px)',
                   objectFit: 'contain',
                   display: 'block'
                 }}
