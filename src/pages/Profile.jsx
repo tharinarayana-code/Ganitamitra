@@ -191,7 +191,22 @@ export const Profile = () => {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '16px' }}>
           {badgesData.map(badge => {
-            const isUnlocked = (gameState.unlockedBadges || []).includes(badge.id) || badge.unlocked;
+            let isUnlocked = (gameState.unlockedBadges || []).includes(badge.id);
+
+            // Dynamic rule checks based on real student activity
+            if (badge.id === 'first_lesson') {
+              isUnlocked = isUnlocked || (gameState.completedLessons || []).length > 0;
+            } else if (badge.id === 'quiz_master') {
+              isUnlocked = isUnlocked || (gameState.accuracyHistory || []).some(s => s === 100);
+            } else if (badge.id === 'streak_3') {
+              isUnlocked = isUnlocked || (gameState.streak || 0) >= 3;
+            } else if (badge.id === 'abacus_pro') {
+              isUnlocked = isUnlocked || Boolean(gameState.abacusPuzzlesSolved >= 5);
+            } else if (badge.id === 'shape_builder') {
+              isUnlocked = isUnlocked || Boolean(gameState.visited3DLab);
+            } else if (badge.id === 'olympiad_hero') {
+              isUnlocked = isUnlocked || (gameState.claimedMissions || []).includes('m_olympiad');
+            }
 
             return (
               <div
@@ -199,12 +214,14 @@ export const Profile = () => {
                 style={{
                   padding: '16px', borderRadius: 'var(--radius-md)', backgroundColor: 'var(--bg-main)',
                   border: isUnlocked ? '1.5px solid var(--secondary)' : '1px dashed var(--border-light)',
-                  opacity: isUnlocked ? 1 : 0.6, display: 'flex', alignItems: 'center', gap: '12px'
+                  opacity: isUnlocked ? 1 : 0.45, display: 'flex', alignItems: 'center', gap: '12px'
                 }}
               >
-                <div style={{ fontSize: '2rem' }}>{badge.icon}</div>
+                <div style={{ fontSize: '2rem', filter: isUnlocked ? 'none' : 'grayscale(100%)' }}>{badge.icon}</div>
                 <div>
-                  <div style={{ fontWeight: '800', fontFamily: 'var(--font-rounded)', fontSize: '0.95rem' }}>{badge.name}</div>
+                  <div style={{ fontWeight: '800', fontFamily: 'var(--font-rounded)', fontSize: '0.95rem', color: isUnlocked ? 'var(--text-main)' : 'var(--text-muted)' }}>
+                    {badge.name}
+                  </div>
                   <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>{badge.desc}</div>
                 </div>
               </div>

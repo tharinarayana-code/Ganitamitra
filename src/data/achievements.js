@@ -5,7 +5,7 @@ export const badgesData = [
     description: 'Complete your first ICSE Class 4 math lesson.',
     icon: 'Award',
     color: '#58cc02',
-    unlocked: true
+    unlocked: false
   },
   {
     id: 'badge_streak_3',
@@ -13,7 +13,7 @@ export const badgesData = [
     description: 'Maintain a 3-day learning streak.',
     icon: 'Flame',
     color: '#ff9600',
-    unlocked: true
+    unlocked: false
   },
   {
     id: 'badge_abacus_master',
@@ -21,7 +21,7 @@ export const badgesData = [
     description: 'Solve 5 Place Value Abacus challenges.',
     icon: 'Hash',
     color: '#1cb0f6',
-    unlocked: true
+    unlocked: false
   },
   {
     id: 'badge_fraction_chef',
