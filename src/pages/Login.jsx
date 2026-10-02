@@ -170,7 +170,10 @@ export const Login = ({ onNavigate }) => {
             <div className="login-illus-box" style={{
               width: '100%',
               maxWidth: '520px',
-              borderRadius: '20px',
+              borderRadius: '24px',
+              backgroundColor: '#ffffff',
+              padding: 'clamp(12px, 2vw, 20px)',
+              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
               overflow: 'hidden',
               display: 'flex',
               alignItems: 'center',
@@ -182,9 +185,10 @@ export const Login = ({ onNavigate }) => {
                 style={{
                   width: '100%',
                   height: 'auto',
-                  maxHeight: 'clamp(180px, 40vh, 520px)',
+                  maxHeight: 'clamp(280px, 50vh, 520px)',
                   objectFit: 'contain',
-                  display: 'block'
+                  display: 'block',
+                  borderRadius: '12px'
                 }}
               />
             </div>
