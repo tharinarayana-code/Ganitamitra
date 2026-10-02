@@ -99,10 +99,12 @@ function AppContent() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, [currentPage]);
 
-  // Register PWA Service Worker for offline support
+  // Register PWA Service Worker for offline support & force updates
   useEffect(() => {
     if ('serviceWorker' in navigator && import.meta.env.PROD) {
-      navigator.serviceWorker.register('/sw.js').catch(err => {
+      navigator.serviceWorker.register('/sw.js').then((reg) => {
+        reg.update();
+      }).catch(err => {
         console.log('SW registration standby:', err);
       });
     }
