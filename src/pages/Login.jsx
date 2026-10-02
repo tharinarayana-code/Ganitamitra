@@ -105,11 +105,12 @@ export const Login = ({ onNavigate }) => {
   return (
     <div className="login-screen-wrapper" style={{
       width: '100%',
-      minHeight: '100vh',
       display: 'flex',
+      flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: 'clamp(10px, 2vw, 24px)',
+      flex: 1,
+      padding: '24px 16px',
       boxSizing: 'border-box'
     }}>
       
@@ -118,7 +119,7 @@ export const Login = ({ onNavigate }) => {
       <div className="login-card-landscape" style={{
         width: '100%',
         maxWidth: '1240px',
-        minHeight: 'auto',
+        margin: 'auto',
         backgroundColor: 'var(--bg-card-solid, #ffffff)',
         border: '1.5px solid var(--border-card, #e2e8f0)',
         boxShadow: 'var(--shadow-md, 0 12px 32px rgba(0,0,0,0.06))',
@@ -127,14 +128,14 @@ export const Login = ({ onNavigate }) => {
         position: 'relative',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between'
+        justifyContent: 'center'
       }}>
         
         {/* Top-Right Header Controls: Language Selector & Theme Toggle */}
         <div style={{
           position: 'absolute',
-          top: 'clamp(12px, 2vh, 20px)',
-          right: 'clamp(14px, 2.5vw, 24px)',
+          top: 'clamp(14px, 2.5vh, 24px)',
+          right: 'clamp(16px, 3vw, 28px)',
           zIndex: 60,
           display: 'flex',
           alignItems: 'center',
@@ -152,8 +153,8 @@ export const Login = ({ onNavigate }) => {
           flexWrap: 'wrap',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: 'clamp(18px, 3vh, 36px) clamp(20px, 3vw, 44px)',
-          gap: 'clamp(20px, 3vw, 40px)',
+          padding: 'clamp(36px, 5vh, 64px) clamp(24px, 4vw, 56px)',
+          gap: 'clamp(24px, 3.5vw, 48px)',
           width: '100%'
         }}>
           
